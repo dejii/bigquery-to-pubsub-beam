@@ -1,0 +1,19 @@
+{
+  "name": "BigQuery to Pubsub Streaming beam Python",
+  "description": "Query a Bigquery table and stream results to a PubSub topic",
+  "parameters": [
+    {
+      "name": "input_query",
+      "label": "Input BigQuery Query",
+      "helpText": "SQL query to run from Bigquery"
+    },
+    {
+      "name": "output_topic",
+      "label": "Output Pubsub topic",
+      "helpText": "Name of the PubSub topic to stream results into",
+      "regexes": [
+        "projects/[^/]+/topics/[a-zA-Z][-_.~+%a-zA-Z0-9]{2,}"
+      ]
+    }
+  ]
+}

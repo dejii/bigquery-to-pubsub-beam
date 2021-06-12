@@ -1,0 +1,9 @@
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ['builds', 'submit', '--tag', 'gcr.io/$PROJECT_ID/dataflow/bigquery_to_pubsub_beam']
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ['dataflow', 'flex-template', 'build', 'gs://$_TEMPLATE_BUCKET/dataflow/templates/bigquery_to_pubsub_beam.json',
+           '--image', 'gcr.io/$PROJECT_ID/dataflow/bigquery_to_pubsub_beam',
+           '--sdk-language', 'PYTHON',
+           '--metadata-file', 'metadata.json']
